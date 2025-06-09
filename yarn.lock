@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@bracketed/logger@npm:^1.0.12":
+  version: 1.0.12
+  resolution: "@bracketed/logger@npm:1.0.12"
+  checksum: 10c0/44404d95449efa578f575ac93b5a7adb915bca872dcaf39d79ac72b6c5906fb25783e9aaf805619fbc171bcc57106d015549fe0cd13997473ef2b2516c918b3b
+  languageName: node
+  linkType: hard
+
 "@bracketed/typescript-config@npm:^4.4.0":
   version: 4.4.0
   resolution: "@bracketed/typescript-config@npm:4.4.0"
@@ -205,7 +212,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ninjaninja140/node-ts-template@workspace:."
   dependencies:
+    "@bracketed/logger": "npm:^1.0.12"
     "@bracketed/typescript-config": "npm:^4.4.0"
+    "@sapphire/snowflake": "npm:^3.5.5"
     "@types/node": "npm:^22.13.11"
     prettier: "npm:^3.5.3"
     tsx: "npm:^4.19.3"
@@ -239,6 +248,13 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10c0/5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
+  languageName: node
+  linkType: hard
+
+"@sapphire/snowflake@npm:^3.5.5":
+  version: 3.5.5
+  resolution: "@sapphire/snowflake@npm:3.5.5"
+  checksum: 10c0/ca6be43c4d90e7c5843bb6aaed59df5cae796404b6948a0fd03caa841d1fded20b64ef84a9df93325b1c4a01165956a3a4b4cb5d7387efee1611fa09488c7068
   languageName: node
   linkType: hard
 

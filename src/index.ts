@@ -15,9 +15,46 @@
 	
 */
 
-import process from 'node:process';
-import console from 'node:console';
+import { Logger } from '@bracketed/logger';
+import { DiscordSnowflake, Snowflake, TwitterSnowflake } from '@sapphire/snowflake';
 
-console.log('Welcome to my script!');
+const Console = new Logger({ prefix: 'Application' });
 
-process.exit(0);
+const original = '14/11/2022 04:54 PM';
+
+const [datePart, timePart, ampm] = original.split(/[\s:]+/);
+
+const [day, month, year, hourRaw, minute] = [
+	datePart.split('/')[0],
+	datePart.split('/')[1],
+	datePart.split('/')[2],
+	timePart,
+	timePart,
+];
+
+let hour = parseInt(hourRaw, 10);
+if (ampm === 'PM' && hour < 12) hour += 12;
+if (ampm === 'AM' && hour === 12) hour = 0;
+
+const origin = new Date(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hour, parseInt(minute, 10));
+const discordEpoch = new Date(Number(DiscordSnowflake.epoch));
+const twitterEpoch = new Date(Number(TwitterSnowflake.epoch));
+
+const customSnowflake = new Snowflake(origin);
+const customId = customSnowflake.generate();
+
+Console.info('Custom Snowflake -----');
+Console.info('  Epoch:', origin);
+Console.info('  Generated:', customId.toString());
+
+const discordSnowflake = DiscordSnowflake.generate();
+
+Console.info('Discord Snowflake -----');
+Console.info('  Epoch:', discordEpoch);
+Console.info('  Generated:', discordSnowflake.toString());
+
+const twitterSnowflake = TwitterSnowflake.generate();
+
+Console.info('Twitter Snowflake -----');
+Console.info('  Epoch:', twitterEpoch);
+Console.info('  Generated:', twitterSnowflake.toString());
